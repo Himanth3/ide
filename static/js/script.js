@@ -26,22 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const defaultPythonCode = `# Welcome to QuantumIDE
 # This is a Python example
 
-def greet(name):
-    """A simple greeting function"""
-    return f"Hello, {name}! Welcome to the future of coding."
-
-# Main program
-if __name__ == "__main__":
-    user_name = "Developer"
-    message = greet(user_name)
-    print(message)
-    
-    # Let's calculate something
-    print("\\nCalculating Fibonacci sequence:")
-    a, b = 0, 1
-    for i in range(10):
-        print(f"Fibonacci {i+1}: {a}")
-        a, b = b, a + b
+print("Hello World")
 `;
 
     // Default code for C++
@@ -49,29 +34,10 @@ if __name__ == "__main__":
 // This is a C++ example
 
 #include <iostream>
-#include <vector>
-#include <string>
-
-// A simple greeting function
-std::string greet(const std::string& name) {
-    return "Hello, " + name + "! Welcome to the future of coding.";
-}
+using namespace std;
 
 int main() {
-    std::string userName = "Developer";
-    std::string message = greet(userName);
-    std::cout << message << std::endl;
-    
-    // Let's calculate something
-    std::cout << "\\nCalculating Fibonacci sequence:" << std::endl;
-    int a = 0, b = 1;
-    for (int i = 0; i < 10; i++) {
-        std::cout << "Fibonacci " << (i+1) << ": " << a << std::endl;
-        int temp = a;
-        a = b;
-        b = temp + b;
-    }
-    
+    cout << "Hello World" << endl;
     return 0;
 }`;
 
@@ -79,26 +45,9 @@ int main() {
     const defaultJavaCode = `// Welcome to QuantumIDE
 // This is a Java example
 
-public class Main {
-    // A simple greeting function
-    public static String greet(String name) {
-        return "Hello, " + name + "! Welcome to the future of coding.";
-    }
-    
+public class HelloWorld {
     public static void main(String[] args) {
-        String userName = "Developer";
-        String message = greet(userName);
-        System.out.println(message);
-        
-        // Let's calculate something
-        System.out.println("\\nCalculating Fibonacci sequence:");
-        int a = 0, b = 1;
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Fibonacci " + (i+1) + ": " + a);
-            int temp = a;
-            a = b;
-            b = temp + b;
-        }
+        System.out.println("Hello World");
     }
 }`;
 
