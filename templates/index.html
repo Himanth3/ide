@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic IDE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Code Mirror for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <!-- Dark themes only -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/midnight.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1>CODER MAWA <span>IDE</span></h1>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="language-selector">
+                    <h3>Language</h3>
+                    <div class="language-options">
+                        <button class="language-btn active" data-language="python">
+                            <i class="fab fa-python"></i> Python
+                        </button>
+                        <button class="language-btn" data-language="cpp">
+                            <i class="fa-solid fa-c"></i> C/C++
+                        </button>
+                        <button class="language-btn" data-language="java">
+                            <i class="fab fa-java"></i> Java
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="templates">
+                    <h3>Templates</h3>
+                    <div class="template-list">
+                        <button class="template-btn" data-template="hello-world">Hello World</button>
+                        <button class="template-btn" data-template="data-structures">Data Structures</button>
+                        <button class="template-btn" data-template="algorithms">Algorithms</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-header">
+                    <div class="file-tabs">
+                        <div class="file-tab active">main.py</div>
+                        <div class="add-tab">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="editor-controls">
+                        <button class="control-btn" id="settings-btn">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <button class="control-btn" id="fullscreen-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="editor-wrapper">
+                    <textarea id="code-editor"></textarea>
+                </div>
+                
+                <div class="editor-footer">
+                    <div class="line-info">Line: 1, Col: 1</div>
+                    <div class="editor-status">Ready</div>
+                </div>
+            </div>
+
+            <div class="output-container">
+                <div class="output-header">
+                    <h3>Output</h3>
+                    <div class="output-controls">
+                        <button class="run-btn" id="run-btn">
+                            <i class="fas fa-play"></i> Run
+                        </button>
+                        <button class="clear-btn" id="clear-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="output-content">
+                    <pre id="output-area">Welcome to QuantumIDE! Press Run to execute your code.</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-tools">
+            <button class="tool-btn" title="Save">
+                <i class="fas fa-save"></i>
+            </button>
+            <button class="tool-btn" title="Share">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <button class="tool-btn" title="Download">
+                <i class="fas fa-download"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal for settings -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editor Settings</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="font-size">Font Size</label>
+                    <input type="range" id="font-size" min="12" max="24" value="16">
+                    <span class="setting-value">16px</span>
+                </div>
+                <div class="setting-group">
+                    <label for="theme-select">Theme</label>
+                    <select id="theme-select">
+                        <option value="dracula">Dracula</option>
+                        <option value="monokai">Monokai</option>
+                        <option value="midnight">Midnight</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="auto-save"> Auto Save
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-settings">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
